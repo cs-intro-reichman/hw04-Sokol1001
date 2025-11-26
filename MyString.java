@@ -1,5 +1,7 @@
-public class MyString {
-    public static void main(String[] args) {
+public class MyString 
+{
+    public static void main(String[] args) 
+    {
         System.out.println("Testing lowercase:");
         System.out.println("UnHappy : " + lowerCase("UnHappy"));
         System.out.println("This costs 15 Sheksls : " + lowerCase("This costs 15 Sheksls"));
@@ -17,14 +19,61 @@ public class MyString {
     }
 
     /** Returns the lowercase version of the given string. */
-    public static String lowerCase(String str) {
-        // Replace the following statement with your code
-        return null;
+    public static String lowerCase(String str) 
+    {
+        String result = "";
+        int i = 0;
+        while (i < str.length()) 
+        {
+            char c = str.charAt(i);
+            
+            if (c >= 'A' && c <= 'Z') 
+            {
+                c = (char) (c + ('a' - 'A'));
+            }
+            
+            result = result + c;
+            i++;
+        }
+        return result;
     }
 
-    /** If str1 contains str2, returns true; otherwise returns false. */
-    public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
+    public static boolean contains(String str1, String str2) 
+    {
+        int n1 = str1.length();
+        int n2 = str2.length();
+        
+        if (n2 == 0) 
+        {
+            return true;
+        }
+        
+        if (n2 > n1) 
+        {
+            return false;
+        }
+
+        int i = 0; 
+        while (i <= n1 - n2) 
+        {
+            boolean match = true;
+            int j = 0; 
+            
+            while (j < n2) {
+                if (str1.charAt(i + j) != str2.charAt(j)) 
+                {
+                    match = false;
+                    break;
+                }
+                j++;
+            }
+            
+            if (match) 
+            {
+                return true;
+            }
+            i++;
+        }
         return false;
     }
 }
